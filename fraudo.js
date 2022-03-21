@@ -27,21 +27,21 @@ const load = () => {
     link.setAttribute('href', "http://localhost:4000/loadId?gameId=" + e.target.value)
     });
     </script>`;
-  };
+};
 
 const loadGameState = async (id) => {
   let loadedGameState = await findGameById(id);
   gameState = loadedGameState;
-  let message = `<img src="/images/frodo1.jpg"> <img src="/images/gandalf1.jpg"> <br><br><p>Hello again ${gameState.name}!</p>Please choose your character (a or b): <br>a) Fraudo <a href="http://localhost:4000/char?character=a">click here</a> <br>b) Gundalf <a href="http://localhost:4000/char?character=b">click here</a><br><br>`; 
+  let message = `<img src="/images/frodo1.jpg"> <img src="/images/gandalf1.jpg"> <br><br><p>Hello again ${gameState.name}!</p>Please choose your character (a or b): <br>a) Fraudo <a href="http://localhost:4000/char?character=a">click here</a> <br>b) Gundalf <a href="http://localhost:4000/char?character=b">click here</a><br><br>`;
   return message;
-  };
+};
 
 const createGameState = async (name, inventory) => {
-  let newGameState = await createGame({ name: name, inventory: ""});
+  let newGameState = await createGame({ name: name, inventory: "" });
   let newGameId = newGameState._Id;
   let game = await findGameById(newGameId);
   gameState = game;
-  let message = `<img src="/images/frodo1.jpg"> <img src="/images/gandalf1.jpg"> <br><br><p>Hello ${name}!</p>Please choose your character (a or b): <br>a) Fraudo <a href="http://localhost:4000/char?character=a">click here</a> <br>b) Gundalf <a href="http://localhost:4000/char?character=b">click here</a><br><br>`; 
+  let message = `<img src="/images/frodo1.jpg"> <img src="/images/gandalf1.jpg"> <br><br><p>Hello ${name}!</p>Please choose your character (a or b): <br>a) Fraudo <a href="http://localhost:4000/char?character=a">click here</a> <br>b) Gundalf <a href="http://localhost:4000/char?character=b">click here</a><br><br>`;
   return message;
 };
 
@@ -57,14 +57,12 @@ const chooseCharacter = (character) => {
 
 const wood = (quest1) => {
   if (quest1 === "a" || quest1 === "A") {
-    gameState.inventory = { $push: { inventory: "toaster"} }
     return '<img src="/images/druzina1.jpg"><br><br>You accepted the quest!<br>Items are added to your inventory: toaster and bread. <br>Gundalf told you to meet him at the Inn Pranking Horse in the village of Brie.<br>You set off with your friends SamNotWise, MerryGoRound and Pooppin.<br><br><img src="/images/roots.jpg"><br><br>In the woods you hear somebody is coming! You tell your friends to hide behind the tree roots but you see the rabbit hole next to it.<br><br>Choose (a or b):<br>a) jump into the rabbit hole <a href="http://localhost:4000/tree?quest2=a">click here</a><br>b) hide under the tree roots <a href="http://localhost:4000/tree?quest2=b">click here</a>';
   } else if (quest1 === "b" || quest1 === "B") {
     return '<img src="/images/sauron.jpg"><br><br>You su*k. Dark Lord Saufron is now king of the leftFlatEarth. <br><br>Choose (a or b): <br>a) To restart the game <a href="http://localhost:4000/loadGame">click here</a> <br>b) To end game <a href="http://localhost:4000/end">click here<a/>';
   } else {
     return "You have to enter a or b. Try again.";
   }
-  updateGameById(gameState._id, gameState.inventory);
 };
 
 const tree = (quest2) => {
@@ -117,5 +115,5 @@ module.exports = {
   tree,
   ferry,
   ravendell,
-  chicken
-  };
+  chicken,
+};
