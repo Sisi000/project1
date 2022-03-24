@@ -1,6 +1,6 @@
 const { MongoClient, ObjectId } = require("mongodb");
 
-let dbName = "Games";
+let dbName = "games";
 let connectionString = "mongodb://localhost:27017";
 const getDb = async () => {
   let connection = await MongoClient.connect(connectionString);
