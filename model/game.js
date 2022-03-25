@@ -6,7 +6,7 @@ let gameState = {
 };
 
 const start = () => {
-  return `<h1 style="font-family:middleearth;font-size:24px">Welcome to the game >>Lord of the Things<<</h1><h2 style="color:red">---DEMO VERSION---</p></h2><img src="/images/toastermap.jpg"><br><br>Please enter your name: <input id="name"/>
+  return `<h1 style="font-family:middleearth;font-size:20px">Welcome to the game >>Lord of the Things<<</h1><h2 style="color:red;margin-left:4.5em">---DEMO VERSION---</h2><p style="margin-left:2.5em;"><img src="/images/toastermap.jpg"><br><br>Please enter your name: <input id="name"/>
   <a id="link"><button>Go</button></a>
   <script> 
     let nameInput = document.getElementById('name')
@@ -14,7 +14,7 @@ const start = () => {
     let link = document.getElementById('link')
     link.setAttribute('href', "http://localhost:4000/api/name?name=" + e.target.value)
     });
-    </script>`;
+    </script></p>`;
 };
 
 const loadGameState = async (id) => {
@@ -128,7 +128,7 @@ const ferry = (quest3) => {
 const inventory2 = () => {
   let seeInv = gameState.inventory;
   // console.log(seeInv);
-  return `In your inventory you have: ${seeInv}<br><br><img src="/images/inventory2.jpg"><br><br><button onclick="goBack()">Go Back</button>
+  return `<i>In your inventory you have: ${seeInv}</i><br><br><img src="/images/inventory2.jpg"><br><br><button onclick="goBack()">Go Back</button>
 <script>
 function goBack() {
    window.history.back();
@@ -160,7 +160,7 @@ const ravendell = (quest4) => {
 const inventory3 = () => {
   let seeInv = gameState.inventory;
   // console.log(seeInv);
-  return `In your inventory you have: ${seeInv}<br><br><img src="/images/inventory3.jpg"><br><br><button onclick="goBack()">Go Back</button>
+  return `<i>In your inventory you have: ${seeInv}</i><br><br><img src="/images/inventory3.jpg"><br><br><button onclick="goBack()">Go Back</button>
 <script>
 function goBack() {
    window.history.back();
@@ -184,7 +184,7 @@ const end = () => {
 
 const end2 = (quest6) => {
   if (quest6 === "a" || quest6 === "A") {
-    return `<img src="/images/happyend2.jpg"><br><br>You saved the world!! Congratulations!<br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
+    return `<img src="/images/happyend2.jpg"><br><br>You saved the world!! Congratulations!<br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else if (quest6 === "b" || quest6 === "B") {
     return `<img src="/images/really.jpg"><br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else {
