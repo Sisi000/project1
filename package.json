@@ -1,13 +1,13 @@
 {
   "name": "project1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lord Of The Things is an text based adventure game",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sanja",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",

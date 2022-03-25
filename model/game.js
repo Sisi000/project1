@@ -67,7 +67,7 @@ const wood = (quest1) => {
     updateGameById(gameState._id, gameState);
     return '<br>You accepted the quest!<br><i>Items are added to your inventory: Toaster and Bread. Check your inventory. </i> <br><br>Gundalf told you to meet him at the Inn Pranking Horse in the village of Brie.<br>You set off with your friends SamNotWise, MerryGoRound and Pooppin.<br><br><img src="/images/roots.jpg"><br><br>In the woods you hear somebody is coming! <br>You tell your friends to hide behind the tree roots but you see the rabbit hole next to it.<br><br>Choose (a or b):<br>a) jump into the rabbit hole <a href="http://localhost:4000/api/tree?quest2=a">click here</a><br>b) hide under the tree roots <a href="http://localhost:4000/api/tree?quest2=b">click here</a><br><br><a href="http://localhost:4000/api/inventory"><b><i>Inventory</a>';
   } else if (quest1 === "b" || quest1 === "B") {
-    return `<img src="/images/sauron.jpg"><br><br>You su*k. Dark Lord Saufron is now king of the leftFlatEarth. <br><br>To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a>`;
+    return `<img src="/images/sauron.jpg"><br><br>You su*k. Dark Lord Saufron is now king of the leftFlatEarth. <br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else {
     return "You have to enter a or b. Try again.";
   }
@@ -86,13 +86,13 @@ const inventory = () => {
 
 const tree = (quest2) => {
   if (quest2 === "a" || quest2 === "A") {
-    return `<img src="/images/rabbit.jpg"><br><br>Why would you jump into the rabbit hole?!? This is not Alice in Wonderland. <br>You are dead now (or at least broken and can't finish the game).<br><br>To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a>`;
+    return `<img src="/images/rabbit.jpg"><br><br>Why would you jump into the rabbit hole?!? This is not Alice in Wonderland. <br>You are dead now (or at least broken and can't finish the game).<br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else if (quest2 === "b" || quest2 === "B") {
     let indexForRemoval = 1;
     let numArray = gameState.inventory;
     numArray.splice(indexForRemoval, 1);
     updateGameById(gameState._id, gameState);
-    console.log(gameState.inventory);
+    // console.log(gameState.inventory);
     return '<img src="/images/ferry.jpg"><br><br>You and your friends start to running but Blank Riders saw you and start chasing you. <br>You were running so fast that your bread droped from your inventory. <br><i>Your inventory has been updated.</i> <br><br>You came to river and saw Ferry.<br><br>Choose (a or b):<br> a) Fight Blank Riders <a href="http://localhost:4000/api/ferry?quest3=a">click here</a><br> b) Hop on Ferry <a href="http://localhost:4000/api/ferry?quest3=b">click here</a><br><br><a href="http://localhost:4000/api/inventory1"><b><i>Inventory</a>';
   } else {
     return "You have to enter a or b. Try again.";
@@ -112,7 +112,7 @@ const inventory1 = () => {
 
 const ferry = (quest3) => {
   if (quest3 === "a" || quest3 === "A") {
-    return `<img src="/images/facepalm.jpg"><br>Really?? You dead...<br><br>To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a>`;
+    return `<img src="/images/facepalm.jpg"><br>Really?? You dead...<br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else if (quest3 === "b" || quest3 === "B") {
     const addInv = " Barrow blade";
     if (!gameState.inventory.includes(addInv)) {
@@ -138,7 +138,7 @@ function goBack() {
 
 const ravendell = (quest4) => {
   if (quest4 === "a" || quest4 === "A") {
-    return `<img src="/images/frododied.jpg"><br><br>Oh please..they killed you next second. <br><br>To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a>`;
+    return `<img src="/images/frododied.jpg"><br><br>Oh please..they killed you next second. <br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else if (quest4 === "b" || quest4 === "B") {
     const addInv = " String";
     if (!gameState.inventory.includes(addInv)) {
@@ -170,19 +170,23 @@ function goBack() {
 
 const ravendell2 = (quest5) => {
   if (quest5 === "a" || quest5 === "A") {
-    return '<img src="/images/frodomordor.jpg"><br><br>Accompanied by Fellowship of the toaster, you continued your adventure. <br>Long story short, you came to mount Damn.<br><br>Choose (a or b): <br>a) Throw the toaster into the fires <a href="http://localhost:4000/api/end2?quest6=a">click here</a> <br>b) Keep the toaster for yourself <a href="http://localhost:4000/api/end2?quest6=b">click here</a>';
+    return '<img src="/images/frodomordor.jpg"><br><br>Accompanied by Fellowship of the toaster, you continued your adventure. <br>Long story short, you came to mount Damn.<br><br>Choose (a or b): <br>a) Throw the toaster into the fires <a href="http://localhost:4000/api/end2?quest6=a">click here</a> <br>b) Keep the toaster for yourself <a href="http://localhost:4000/api/end2?quest6=b">click here</a><br><br><a href="http://localhost:4000/api/inventory3"><b><i>Inventory</a>';
   } else if (quest5 === "b" || quest5 === "B") {
-    return `<img src="/images/chicken.jpg"><br><br>To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a>`;
+    return `<img src="/images/chicken.jpg"><br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else {
     return "You have to enter a or b. Try again.";
   }
 };
 
+const end = () => {
+  return `<img src="/images/end.jpg">`
+}
+
 const end2 = (quest6) => {
   if (quest6 === "a" || quest6 === "A") {
-    return `<img src="/images/happyend2.jpg"><br><br>You saved the world!! Congratulations!<br>To start again <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a>`;
+    return `<img src="/images/happyend2.jpg"><br><br>You saved the world!! Congratulations!<br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else if (quest6 === "b" || quest6 === "B") {
-    return `<img src="/images/really.jpg"><br><br>To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a>`;
+    return `<img src="/images/really.jpg"><br><br>Choose (a or b):<br>a) To restart the game <a href="http://localhost:4000/api/loadId?gameId=${gameState._id}">click here</a><br>b) To end the game <a href="http://localhost:4000/api/end">click here</a>`;
   } else {
     return "You have to enter a or b. Try again.";
   }
@@ -202,5 +206,6 @@ module.exports = {
   ravendell,
   inventory3,
   ravendell2,
+  end,
   end2,
 };

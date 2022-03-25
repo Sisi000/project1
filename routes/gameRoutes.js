@@ -13,6 +13,7 @@ const {
     inventory2,
     inventory3,
     ravendell2,
+    end,
     end2,
     createGameState,
     loadGameState
@@ -96,6 +97,11 @@ router.get("/ravendell2", (req, res) => {
   let answer = ravendell2(quest5);
   res.send(answer);
 });
+
+router.get("/end", (req, res) => {
+  let endmsg = end();
+  res.send(endmsg);
+})
 
 router.get("/end2", (req, res) => {
   let quest6 = req.query.quest6;
